@@ -14,13 +14,13 @@ const db = new sqlite3.Database('./maBaseDeDonnees.sqlite', sqlite3.OPEN_READWRI
                 if (err) {
                     console.error(err.message);
                 } else {
-                    // db.run(`ALTER TABLE personnes ADD COLUMN adresse TEXT`, (err) => {
-                    //     if (err) {
-                    //         console.error(err.message);
-                    //     } else {
-                    //         console.log('Column "adresse" added to the personnes table.');
-                    //     }
-                    // });
+                    db.run(`ALTER TABLE personnes ADD COLUMN profile_picture BLOB`, (err) => {
+                        if (err) {
+                            console.error(err.message);
+                        } else {
+                            console.log('Column "profile_picture" added to the personnes table.');
+                        }
+                    });
                     
                 }
             });
