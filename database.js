@@ -9,16 +9,17 @@ const db = new sqlite3.Database('./maBaseDeDonnees.sqlite', sqlite3.OPEN_READWRI
             db.run(`CREATE TABLE IF NOT EXISTS personnes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nom TEXT NOT NULL,
-                adresse TEXT
+                adresse TEXT,
+            picture BLOB
                )`, (err) => {
                 if (err) {
                     console.error(err.message);
                 } else {
-                    db.run(`ALTER TABLE personnes ADD COLUMN profile_picture BLOB`, (err) => {
+                    db.run(`ALTER TABLE personnes ADD COLUMN picture BLOB`, (err) => {
                         if (err) {
                             console.error(err.message);
                         } else {
-                            console.log('Column "profile_picture" added to the personnes table.');
+                            console.log('Column "picture" added to the personnes table.');
                         }
                     });
                     
